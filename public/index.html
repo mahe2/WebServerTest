@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP请求测试工具</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌐 HTTP请求测试工具</h1>
+            <p>测试GET、POST和文件上传请求</p>
+        </header>
+
+        <main>
+            <!-- GET请求测试 -->
+            <section class="test-section">
+                <h2>📥 GET 请求测试</h2>
+                <form id="getForm">
+                    <div class="form-group">
+                        <label for="getParam1">参数1 (name):</label>
+                        <input type="text" id="getParam1" name="name" placeholder="例如: John">
+                    </div>
+                    <div class="form-group">
+                        <label for="getParam2">参数2 (age):</label>
+                        <input type="text" id="getParam2" name="age" placeholder="例如: 25">
+                    </div>
+                    <div class="form-group">
+                        <label for="getParam3">参数3 (city):</label>
+                        <input type="text" id="getParam3" name="city" placeholder="例如: 北京">
+                    </div>
+                    <button type="submit" class="btn btn-primary">发送GET请求</button>
+                </form>
+                <div id="getResult" class="result-box"></div>
+            </section>
+
+            <!-- POST请求测试 -->
+            <section class="test-section">
+                <h2>📤 POST 请求测试</h2>
+                <form id="postForm">
+                    <div class="form-group">
+                        <label for="postData">JSON数据:</label>
+                        <textarea id="postData" rows="6" placeholder='例如:
+{
+  "username": "testuser",
+  "email": "test@example.com",
+  "message": "这是测试消息"
+}'></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">发送POST请求</button>
+                </form>
+                <div id="postResult" class="result-box"></div>
+            </section>
+
+            <!-- 文件上传测试 -->
+            <section class="test-section">
+                <h2>📎 文件上传测试</h2>
+                <form id="uploadForm">
+                    <div class="form-group">
+                        <label for="fileInput">选择文件:</label>
+                        <input type="file" id="fileInput" name="file">
+                        <small>最大文件大小: 10MB</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="fileDescription">文件描述 (可选):</label>
+                        <input type="text" id="fileDescription" name="description" placeholder="例如: 测试文档">
+                    </div>
+                    <button type="submit" class="btn btn-warning">上传文件</button>
+                </form>
+                <div id="uploadResult" class="result-box"></div>
+            </section>
+
+            <!-- 已上传文件列表 -->
+            <section class="test-section">
+                <h2>📁 已上传文件列表</h2>
+                <button class="btn btn-info" onclick="loadUploadedFiles()">刷新列表</button>
+                <div id="fileList" class="result-box"></div>
+            </section>
+        </main>
+
+        <footer>
+            <p>服务运行在 <code>http://localhost:3000</code></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
